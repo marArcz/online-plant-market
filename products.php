@@ -16,13 +16,13 @@
         <section>
             <div class="container py-4">
                 <div class="input-group rounded-0 mb-5">
-                    <input type="text" class="form-control rounded-0" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="text" class="form-control rounded-0" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-success rounded-0" type="button" id="button-addon2">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb-3 gy-3">
                     <div class="col-lg-2">
                         <!-- <p class="px-3 fs-5 mb-3">Categories</p> -->
                         <ul class="nav flex-column">
