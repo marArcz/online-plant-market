@@ -1,4 +1,6 @@
 <?php include './shared/classes/ProductItem.php' ?>
+<?php session_start() ?>
+<?php include './shared/loadUserSession.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +13,8 @@
 </head>
 
 <body>
-   <?php include './shared/header_nav.php' ?>
+    <?php $active_page = "home" ?>
+    <?php include './shared/header_nav.php' ?>
     <main>
         <section class="hero-main position-relative">
             <div class="h-100 position-relative d-flex justify-content-center align-items-center">
@@ -87,7 +90,8 @@
         </section>
     </main>
     <br>
-  <?php include './shared/footer.php' ?>
+    <?php include './shared/footer.php' ?>
+    <?php include './shared/scripts.php' ?>
 </body>
 
 </html>

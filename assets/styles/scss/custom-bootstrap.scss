@@ -1,3 +1,9 @@
-$success:rgb(3, 107, 3);
+$success:rgb(4, 88, 4);
+$accordion-color: black;
+$accordion-bg: white;
+$accordion-button-icon:url("../../arrow-down.svg");
+$accordion-button-active-icon: url("../../arrow-down.svg");
+$accordion-button-active-bg:white;
+$accordion-button-active-color:black;
 
 @import '../../bootstrap/scss/bootstrap.scss';
