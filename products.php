@@ -1,3 +1,5 @@
+<?php session_start() ?>
+<?php include './shared/loadUserSession.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +12,7 @@
 </head>
 
 <body>
+    <?php $active_page = "products" ?>
     <?php include './shared/header_nav.php' ?>
     <?php include './shared/classes/ProductItem.php' ?>
     <main>
@@ -55,95 +58,64 @@
                     <div class="col-lg">
                         <p class="mb-3 fs-4 fw-bold"><?php echo $current_category ?></p>
                         <div class="row gy-5 gx-lg-5">
-                            <?php
-                            $products = [
-                                new ProductItem('Bambino', '599.00', 'assets/air-purifying-plants/bambino.PNG', category: $categories[1]),
-                                new ProductItem('Black Prince Rubber Tree', '999.00', 'assets/air-purifying-plants/black-prince.PNG', category: $categories[1]),
-                                new ProductItem('Cypress Tree', '899.00', 'assets/air-purifying-plants/cypress-tree.PNG', category: $categories[1]),
-                                new ProductItem('Fiddle Leaf Fig', '1999.00-3999.00', 'assets/air-purifying-plants/fiddle-leaf.PNG', category: $categories[1]),
-                                new ProductItem('Licuala Grandis', '1199.00', 'assets/air-purifying-plants/licuala-grandis.PNG', category: $categories[1]),
-                                new ProductItem('Palm Tree', '299.00-1799.00', 'assets/air-purifying-plants/palm-tree.PNG', category: $categories[1]),
-                                new ProductItem('Robusta', '299.00-699.00', 'assets/air-purifying-plants/robusta.PNG', category: $categories[1]),
-                                new ProductItem('Rubber Tree', '1999.00-3999.00', 'assets/air-purifying-plants/rubber-tree.PNG', category: $categories[1]),
-                                new ProductItem('Snake Plant', '299.00-699.00', 'assets/air-purifying-plants/snake-plant.PNG', category: $categories[1]),
-                                new ProductItem('Tineke Rubber Tree', '999.00', 'assets/air-purifying-plants/tineke-rubber-tree.PNG', category: $categories[1]),
-                                // hanging plants
-                                new ProductItem('Anthuriumn Hookeri', '699.00', 'assets/hanging-plants/1.PNG', category: $categories[2]),
-                                new ProductItem('Black Prince Rubber Tree', '999.00', 'assets/hanging-plants/2.PNG', category: $categories[2]),
-                                new ProductItem('Cobra Fern', '999.00', 'assets/hanging-plants/3.PNG', category: $categories[2]),
-                                new ProductItem('Cypress Tree', '899.00', 'assets/hanging-plants/4.PNG', category: $categories[2]),
-                                new ProductItem('Golden Selfoum', '999.00', 'assets/hanging-plants/5.PNG', category: $categories[2]),
-                                new ProductItem('Monstera Deliciosa', '1599.00', 'assets/hanging-plants/6.PNG', category: $categories[2]),
-                                new ProductItem('Tineke Rubber Tree', '599.00', 'assets/hanging-plants/7.PNG', category: $categories[2]),
-                                new ProductItem('Variegated Money Tree', '999.00', 'assets/hanging-plants/8.PNG', category: $categories[2]),
-                                new ProductItem('Multistalk Fortune Plant', '499.00-999.00', 'assets/hanging-plants/9.PNG', category: $categories[2]),
-                                new ProductItem('Palm Tree', '299.00-1799.00', 'assets/hanging-plants/10.PNG', category: $categories[2]),
-                                // office plants
-                                new ProductItem('Anthuriumn Hookeri', '699.00', 'assets/office-plants/1.PNG', category: $categories[3]),
-                                new ProductItem('Bambino', '999.00', 'assets/office-plants/2.PNG', category: $categories[3]),
-                                new ProductItem('Black Prince Rubber Tree', '999.00', 'assets/office-plants/3.PNG', category: $categories[3]),
-                                new ProductItem('Cactus', '899.00', 'assets/office-plants/4.PNG', category: $categories[3]),
-                                new ProductItem('Dieffenbachia Oerstedi', '999.00', 'assets/office-plants/5.PNG', category: $categories[3]),
-                                new ProductItem('Licuala Grandis', '1599.00', 'assets/office-plants/6.PNG', category: $categories[3]),
-                                new ProductItem('Mostera Decliosa', '599.00', 'assets/office-plants/7.PNG', category: $categories[3]),
-                                new ProductItem('Philodendron Black Cardinal', '999.00', 'assets/office-plants/8.PNG', category: $categories[3]),
-                                new ProductItem('Philodendron Burle Marx', '499.00-999.00', 'assets/office-plants/9.PNG', category: $categories[3]),
-                                new ProductItem('Philodendron Prince of Orange', '299.00-1799.00', 'assets/office-plants/10.PNG', category: $categories[3]),
-                                // table tops
-                                new ProductItem('Alocasia Bambino', '699.00', 'assets/table-tops/1.PNG', category: $categories[4]),
-                                new ProductItem('Aloe Vera', '999.00', 'assets/table-tops/2.PNG', category: $categories[4]),
-                                new ProductItem('Anthurium Laceleaf', '999.00', 'assets/table-tops/3.PNG', category: $categories[4]),
-                                new ProductItem('Boston Fern', '899.00', 'assets/table-tops/4.PNG', category: $categories[4]),
-                                new ProductItem('Cactus', '999.00', 'assets/office-plants/5.PNG', category: $categories[4]),
-                                new ProductItem('Cobra Fern', '1599.00', 'assets/table-tops/6.PNG', category: $categories[4]),
-                                new ProductItem('Crptanthus', '599.00', 'assets/table-tops/7.PNG', category: $categories[4]),
-                                new ProductItem('Dieffenbachia Oerstedi', '999.00', 'assets/table-tops/8.PNG', category: $categories[4]),
-                                new ProductItem('Dwarf Croton San Francisco', '499.00-999.00', 'assets/table-tops/9.PNG', category: $categories[4]),
-                                new ProductItem('Green Fittonia', '299.00-1799.00', 'assets/table-tops/10.PNG', category: $categories[4]),
-                                // Herbs
-                                new ProductItem('Chocolate Mint', '699.00', 'assets/herbs/1.PNG', category: $categories[5]),
-                                new ProductItem('Citronella', '999.00', 'assets/herbs/2.PNG', category: $categories[5]),
-                                new ProductItem('Citronella Malvarosa', '999.00', 'assets/herbs/3.PNG', category: $categories[5]),
-                                new ProductItem('Dill', '899.00', 'assets/herbs/4.PNG', category: $categories[5]),
-                                new ProductItem('Cactus', '999.00', 'assets/herbs/5.PNG', category: $categories[5]),
-                                new ProductItem('Gotu Kola', '1599.00', 'assets/herbs/6.PNG', category: $categories[5]),
-                                new ProductItem('Green Tea', '599.00', 'assets/herbs/7.PNG', category: $categories[5]),
-                                new ProductItem('Lavender', '999.00', 'assets/herbs/8.PNG', category: $categories[5]),
-                                new ProductItem('Lemon Balm', '499.00-999.00', 'assets/herbs/9.PNG', category: $categories[5]),
-                                new ProductItem('Lemon Mint', '299.00-1799.00', 'assets/herbs/10.PNG', category: $categories[5]),
 
-                            ];
-                            ?>
                             <?php
-                            foreach ($products as $key => $product) {
-                                if ($current_category == "All Products" || $product->category == $current_category) :
+                            include_once './conn/conn.php';
+                            if ($current_category == "All Products") {
+                                $get_products = mysqli_query($con, "SELECT products.*, categories.category_name FROM products INNER JOIN categories ON products.category_id = categories.id");
+                            } else {
+                                $get_products = mysqli_query($con, "SELECT products.*, categories.category_name FROM products INNER JOIN categories ON products.category_id = categories.id WHERE categories.category_name = '$current_category'");
+                            }
+                            while ($row = $get_products->fetch_assoc()) {
                             ?>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product-card">
-                                            <div class="image-container">
-                                                <img src="<?php echo $product->image ?>" class="img-fluid img-thumbnail" alt="">
-                                            </div>
-                                            <p class="my-1 fw-bold"><?php echo $product->name ?></p>
-                                            <p class="my-1">₱<?php echo $product->price ?></p>
-                                            <div class="badge text-bg-light border text-success"><?php echo $product->category ?></div>
-                                            <div class="mt-3 d-grid">
-                                                <button class="btn btn-success" type="button">Add to Cart</button>
-                                            </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="product-card">
+                                        <div class="image-container">
+                                            <img src="<?php echo $row['photo'] ?>" class="img-fluid product-image img-thumbnail" alt="">
+                                        </div>
+                                        <p class="my-1 fw-bold product-name"><?php echo $row['product_name'] ?></p>
+                                        <p class="my-1 product-price">₱<?php echo $row['price'] ?></p>
+                                        <div class="badge text-bg-light border text-success"><span class="category"><?php echo $row['category_name'] ?></span></div>
+                                        <div class="mt-3 d-grid">
+                                            <a class="btn btn-success" data-id="<?php echo $row['id'] ?>" href="#offcanvas-cart" data-bs-toggle="offcanvas">Add to Cart</a>
                                         </div>
                                     </div>
+                                </div>
                             <?php
-                                endif;
                             }
                             ?>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <?php include './shared/footer.php' ?>
 
+    <?php include './shared/footer.php' ?>
+    <?php include './shared/offcanvas-cart.php' ?>
+    <?php include './shared/scripts.php' ?>
+
+    <script>
+        $("#offcanvas-cart").on('show.bs.offcanvas', function(e) {
+            let offcanvas = $(this);
+
+            let btn = $(e.relatedTarget);
+            let productCard = btn.parent().parent();
+
+            let name = productCard.find(".product-name").html();
+            let price = productCard.find(".product-price").html();
+            let category = productCard.find(".category").html();
+            let img = productCard.find(".product-image").attr('src');
+
+            offcanvas.find(".product-id").val(btn.data('id'))
+            offcanvas.find(".name").html(name)
+            offcanvas.find(".price").html(price)
+            offcanvas.find(".category").html(category)
+            offcanvas.find(".product-image").attr('src',img)
+        })
+
+     
+    </script>
 </body>
 
 </html>
